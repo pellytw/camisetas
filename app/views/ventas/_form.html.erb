@@ -1,0 +1,42 @@
+<%= nested_form_for(@venta)  do |f| %>
+  <% if @venta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@venta.errors.count, "error") %> prohibited this venta from being saved:</h2>
+
+      <ul>
+      <% @venta.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cliente_id %><br />
+    <%= collection_select(:venta, :cliente_id, Cliente.all, :id, :to_s, :prompt => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </div>
+  
+  <div class="field">
+  	<label>Detalle Venta:</label><br />
+  	<%= f.fields_for :detalle_ventas do |dv|%>
+  			<p>
+  				<%= dv.collection_select(:producto_id, Producto.all, :id, :to_s, :prompt => true)%>
+  				&nbsp;Cantidad&nbsp;  				
+  				<%= dv.number_field(:cantidad, :value => 1.to_i)%><br />
+  				&nbsp;PU&nbsp;
+  				<%= dv.text_field(:precio_unitario, :value => 350.to_i)%><br />
+  				<%= dv.link_to_remove "eliminar", :class => "btn btn-danger btn-mini" %>
+  			</p>
+  	<% end %>
+    <p><%= f.link_to_add "agregar producto", :detalle_ventas, :class => "btn btn-success" %></p>
+  </div>
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

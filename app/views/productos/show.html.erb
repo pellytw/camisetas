@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tipo producto:</b>
+  <%= @producto.tipo_producto %>
+</p>
+
+<p>
+  <b>Club:</b>
+  <%= @producto.club %>
+</p>
+
+<p>
+  <b>Titularidad:</b>
+  <%= @producto.titularidad %>
+</p>
+
+<p>
+  <b>Talle:</b>
+  <%= @producto.talle %>
+</p>
+
+<p>
+  <b>Stock:</b>
+  <%= @producto.stock %>
+</p>
+
+<p>
+  <b>Precio lista:</b>
+  <%= @producto.precio_lista %>
+</p>
+
+<p>
+  <b>Precio publico:</b>
+  <%= @producto.precio_publico %>
+</p>
+
+
+<%= link_to 'Edit', edit_producto_path(@producto) %> |
+<%= link_to 'Back', productos_path %>

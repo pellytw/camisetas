@@ -1,0 +1,27 @@
+<h1>Listado de usuarios</h1>
+
+
+<% if can? :create, User %> 
+<div align="right"><%= link_to 'Agregar usuario', new_user_path, :class => "btn btn-small btn-success"  %></div><br />
+<% end %>
+<table class="table table-striped">
+  <tr>
+  	<th>Usuario</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+  	<td><%= user.email%></td>
+    <td><%= link_to 'ver', user, :class => "btn btn-small btn-secondary" %></td>
+    <td><%= link_to 'editar', edit_user_path(user) , :class => "btn btn-small btn-secondary"%></td>
+    <td><%= link_to 'eliminar', user, method: :delete, data: { confirm: 'Seguro desea eliminar?' }, :class => "btn btn-small btn-secondary" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

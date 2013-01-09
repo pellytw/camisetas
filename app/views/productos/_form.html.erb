@@ -1,0 +1,45 @@
+<%= form_for(@producto) do |f| %>
+  <% if @producto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+
+      <ul>
+      <% @producto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo_producto_id %><br />
+    <%= collection_select(:producto, :tipo_producto_id, TipoProducto.all, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label :club_id %><br />
+    <%= collection_select(:producto, :club_id, Club.all, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label :titularidad_id %><br />
+    <%= collection_select(:producto, :titularidad_id, Titularidad.all, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label :talle_id %><br />
+    <%= collection_select(:producto, :talle_id, Talle.all, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label :stock %><br />
+    <%= f.number_field :stock %>
+  </div>
+  <div class="field">
+    <%= f.label :precio_lista %><br />
+    <%= f.text_field :precio_lista %>
+  </div>
+  <div class="field">
+    <%= f.label :precio_publico %><br />
+    <%= f.text_field :precio_publico %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

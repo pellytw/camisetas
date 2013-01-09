@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  proveedor_id: 1
+  detalle_compra_id: 1
+
+two:
+  proveedor_id: 1
+  detalle_compra_id: 1

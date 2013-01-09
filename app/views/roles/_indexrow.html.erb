@@ -1,0 +1,8 @@
+<li>
+    <span class="roleDescription"><%= current_role.description %></span>
+    <span class="roleCommands">[<%= link_to 'ver', current_role %> -
+    <%= link_to 'editar', edit_role_path(current_role) %> -
+    <%= link_to 'eliminar', current_role, confirm: 'Seguro desea eliminar?', method: :delete %>]
+    </span>
+</li>
+<%= the_children %>

@@ -1,0 +1,25 @@
+<h1>Listing producto_estados</h1>
+
+<table>
+  <tr>
+    <th>Producto</th>
+    <th>Estado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @producto_estados.each do |producto_estado| %>
+  <tr>
+    <td><%= producto_estado.producto_id %></td>
+    <td><%= producto_estado.estado_id %></td>
+    <td><%= link_to 'Show', producto_estado %></td>
+    <td><%= link_to 'Edit', edit_producto_estado_path(producto_estado) %></td>
+    <td><%= link_to 'Destroy', producto_estado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Producto estado', new_producto_estado_path %>

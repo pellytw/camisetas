@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @venta.cliente %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @venta.fecha %>
+</p>
+
+<tr><td>
+  <b>Detalle Venta:</b></td><td>
+  <ul>
+	  <% @venta.detalle_ventas.each do |dv| %>
+	  	<li>Producto: <%= dv.producto %></li> <li> Cantidad: <%= dv.cantidad %></li> 
+	  	<li> PU: <%= dv.precio_unitario %></li> <li> Subtotal: <%= (dv.precio_unitario * dv.cantidad) %></li>
+	  <% end%>
+  </ul>
+</td></tr>
+
+
+<%= link_to 'Editar', edit_venta_path(@venta) %> |
+<%= link_to 'Volver', ventas_path %>

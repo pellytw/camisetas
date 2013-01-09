@@ -1,0 +1,35 @@
+<h1>Listado de Productos</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Tipo producto</th>
+    <th>Club</th>
+    <th>Titularidad</th>
+    <th>Talle</th>
+    <th>Stock</th>
+    <th>Precio lista</th>
+    <th>Precio publico</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @productos.each do |producto| %>
+  <tr>
+    <td><%= producto.tipo_producto %></td>
+    <td><%= producto.club %></td>
+    <td><%= producto.titularidad %></td>
+    <td><%= producto.talle %></td>
+    <td><%= producto.stock %></td>
+    <td><%= producto.precio_lista %></td>
+    <td><%= producto.precio_publico %></td>
+    <td><%= link_to 'Ver', producto %></td>
+    <td><%= link_to 'Editar', edit_producto_path(producto) %></td>
+    <td><%= link_to 'Eliminar', producto, method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Producto', new_producto_path, :class => "btn btn-success" %>

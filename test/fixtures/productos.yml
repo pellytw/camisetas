@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tipo_producto_id: 1
+  club_id: 1
+  titularidad_id: 1
+  talle_id: 1
+  stock: 1
+  precio_lista: 1.5
+  precio_publico: 1.5
+
+two:
+  tipo_producto_id: 1
+  club_id: 1
+  titularidad_id: 1
+  talle_id: 1
+  stock: 1
+  precio_lista: 1.5
+  precio_publico: 1.5

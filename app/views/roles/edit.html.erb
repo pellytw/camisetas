@@ -1,0 +1,22 @@
+<script>
+  $(document).ready(function(){
+    defaultLocation();
+  });
+
+  function defaultLocation() {
+    fillAjaxHolder('/role_permissions?role_id=<%= @role.id %>');
+  }
+</script>
+
+
+<h2>Editar rol</h2>
+
+<%= render 'form' %>
+
+<%= link_to 'ver', @role %> |
+<%= link_to 'atras', roles_path %>
+
+<h2>Permissions</h2>
+<div id="ajaxHolder">
+
+</div>

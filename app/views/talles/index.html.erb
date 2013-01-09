@@ -1,0 +1,23 @@
+<h1>Listing talles</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @talles.each do |talle| %>
+  <tr>
+    <td><%= talle.nombre %></td>
+    <td><%= link_to 'Show', talle %></td>
+    <td><%= link_to 'Edit', edit_talle_path(talle) %></td>
+    <td><%= link_to 'Destroy', talle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Talle', new_talle_path %>

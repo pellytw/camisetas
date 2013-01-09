@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Venta:</b>
+  <%= @detalle_venta.venta_id %>
+</p>
+
+<p>
+  <b>Producto:</b>
+  <%= @detalle_venta.producto_id %>
+</p>
+
+<p>
+  <b>Precio unitario:</b>
+  <%= @detalle_venta.precio_unitario %>
+</p>
+
+<p>
+  <b>Cantidad:</b>
+  <%= @detalle_venta.cantidad %>
+</p>
+
+
+<%= link_to 'Edit', edit_detalle_venta_path(@detalle_venta) %> |
+<%= link_to 'Back', detalle_ventas_path %>
