@@ -1,6 +1,6 @@
 class Venta < ActiveRecord::Base
   
-  attr_accessible :cliente_id, :fecha
+  attr_accessible :cliente_id, :fecha, :importe
   
   attr_accessible :detalle_ventas_attributes
   

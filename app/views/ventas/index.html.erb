@@ -1,25 +1,32 @@
 <h1>Listado de Ventas</h1>
 
-<table>
+<table class=" table table-striped" >
   <tr>
     <th>Cliente</th>
     <th>Fecha</th>
+    <th>Importe Venta</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
+<% @total_ventas = 0.0 %>
+
 <% @ventas.each do |venta| %>
   <tr>
-    <td><%= venta.cliente_id %></td>
+    <td><%= venta.cliente %></td>
     <td><%= venta.fecha %></td>
+    <td><%= venta.importe %></td>
     <td><%= link_to 'Ver', venta %></td>
     <td><%= link_to 'Editar', edit_venta_path(venta) %></td>
     <td><%= link_to 'Eliminar', venta, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <% @total_ventas = @total_ventas + venta.importe %>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Nueva Venta', new_venta_path %>
+<h5>Total Ventas: <%= @total_ventas %></h5> 
+
+<%= link_to 'Nueva Venta', new_venta_path, :class => "btn btn-success" %>

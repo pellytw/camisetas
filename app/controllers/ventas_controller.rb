@@ -41,6 +41,12 @@ class VentasController < ApplicationController
   # POST /ventas.json
   def create
     @venta = Venta.new(params[:venta])
+    
+   @venta.importe = 0.0
+   
+   @venta.detalle_ventas.each do |dv|
+     @venta.importe = @venta.importe = @venta.importe + dv.precio_unitario * dv.cantidad
+   end
 
     respond_to do |format|
       if @venta.save

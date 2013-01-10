@@ -10,16 +10,30 @@
   <%= @venta.fecha %>
 </p>
 
-<tr><td>
-  <b>Detalle Venta:</b></td><td>
-  <ul>
-	  <% @venta.detalle_ventas.each do |dv| %>
-	  	<li>Producto: <%= dv.producto %></li> <li> Cantidad: <%= dv.cantidad %></li> 
-	  	<li> PU: <%= dv.precio_unitario %></li> <li> Subtotal: <%= (dv.precio_unitario * dv.cantidad) %></li>
+  <b>Detalle Venta:</b>
+  <table class="table table-striped">
+  	<th>Producto</th>
+  	<th>Cantidad</th>
+  	<th>PU</th>
+  	<th>Subtotal</th>
+  	  <% @venta.detalle_ventas.each do |dv| %>
+	  	<tr>
+	  		<td> 
+	  			<%= dv.producto %>
+	  		</td>
+	  		<td>
+	  			<%= dv.cantidad %>
+	  		</td>
+	  		<td>
+	  			$ <%= dv.precio_unitario %>
+			</td>
+			<td>
+				$ <%= (dv.precio_unitario * dv.cantidad) %>
+			</td>
+	  	</tr>
 	  <% end%>
-  </ul>
-</td></tr>
-
+  </table>
+  <p><b>Total Venta: $ <%= @venta.importe %></b></p>
 
 <%= link_to 'Editar', edit_venta_path(@venta) %> |
 <%= link_to 'Volver', ventas_path %>
