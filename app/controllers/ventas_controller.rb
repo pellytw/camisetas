@@ -42,11 +42,11 @@ class VentasController < ApplicationController
   def create
     @venta = Venta.new(params[:venta])
     
-   @venta.importe = 0.0
-   
-   @venta.detalle_ventas.each do |dv|
-     @venta.importe = @venta.importe = @venta.importe + dv.precio_unitario * dv.cantidad
-   end
+    @venta.importe = 0.0
+     
+    @venta.detalle_ventas.each do |dv|
+      @venta.importe = @venta.importe = @venta.importe + dv.precio_unitario * dv.cantidad
+    end
 
     respond_to do |format|
       if @venta.save
@@ -63,6 +63,12 @@ class VentasController < ApplicationController
   # PUT /ventas/1.json
   def update
     @venta = Venta.find(params[:id])
+    
+    @venta.importe = 0.0
+     debugger
+    @venta.detalle_ventas.each do |dv|
+      @venta.importe = @venta.importe = @venta.importe + dv.precio_unitario * dv.cantidad
+    end
 
     respond_to do |format|
       if @venta.update_attributes(params[:venta])
@@ -86,4 +92,9 @@ class VentasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def calcularTotalVenta
+    
+  end
+  
 end
