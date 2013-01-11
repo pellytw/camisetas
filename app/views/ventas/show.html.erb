@@ -16,6 +16,7 @@
   	<th>Cantidad</th>
   	<th>PU</th>
   	<th>Subtotal</th>
+	  <% @venta.importe = 0.0 %>  	
   	  <% @venta.detalle_ventas.each do |dv| %>
 	  	<tr>
 	  		<td> 
@@ -31,6 +32,7 @@
 				$ <%= (dv.precio_unitario * dv.cantidad) %>
 			</td>
 	  	</tr>
+	    <% @venta.importe = @venta.importe + (dv.precio_unitario * dv.cantidad) %>
 	  <% end%>
   </table>
   <p><b>Total Venta: $ <%= @venta.importe %></b></p>

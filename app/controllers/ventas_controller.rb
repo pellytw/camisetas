@@ -45,7 +45,7 @@ class VentasController < ApplicationController
     @venta.importe = 0.0
      
     @venta.detalle_ventas.each do |dv|
-      @venta.importe = @venta.importe = @venta.importe + dv.precio_unitario * dv.cantidad
+      @venta.importe = @venta.importe + dv.precio_unitario * dv.cantidad
     end
 
     respond_to do |format|
@@ -64,14 +64,13 @@ class VentasController < ApplicationController
   def update
     @venta = Venta.find(params[:id])
     
-    @venta.importe = 0.0
-     debugger
-    @venta.detalle_ventas.each do |dv|
-      @venta.importe = @venta.importe = @venta.importe + dv.precio_unitario * dv.cantidad
-    end
-
     respond_to do |format|
       if @venta.update_attributes(params[:venta])
+        debugger
+        @venta.importe = 0.0
+        @venta.detalle_ventas.each do |dv|
+          @venta.importe = @venta.importe + dv.precio_unitario * dv.cantidad
+        end
         format.html { redirect_to @venta, notice: 'Venta was successfully updated.' }
         format.json { head :no_content }
       else
