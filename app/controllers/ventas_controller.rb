@@ -61,14 +61,10 @@ class VentasController < ApplicationController
 
   # PUT /ventas/1
   # PUT /ventas/1.json
-  def update
+  def update 
     @venta = Venta.find(params[:id])
     
     respond_to do |format|
-      @venta.importe = 0.0
-      @venta.detalle_ventas.each do |dv|
-         @venta.importe = @venta.importe + dv.precio_unitario * dv.cantidad
-      end
       if @venta.update_attributes(params[:venta])
         format.html { redirect_to @venta, notice: 'Venta was successfully updated.' }
         format.json { head :no_content }

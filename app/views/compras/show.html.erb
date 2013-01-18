@@ -6,10 +6,44 @@
 </p>
 
 <p>
-  <b>Detalle compra:</b>
-  <%= @compra.detalle_compra_id %>
+  <b>Fecha:</b>
+  <%= @compra.fecha %>
 </p>
 
+<!-- <p>
+  <b>Importe:</b>
+  <%= @compra.importe %>
+</p> -->
 
-<%= link_to 'Edit', edit_compra_path(@compra) %> |
-<%= link_to 'Back', compras_path %>
+
+  <b>Detalle Compra:</b>
+  <table class="table table-striped">
+  	<th>Producto</th>
+  	<th>Cantidad</th>
+  	<th>PU</th>
+  	<th>Subtotal</th>
+	  <% @compra.importe = 0.0 %>  	
+  	  <% @compra.detalle_compras.each do |dc| %>
+	  	<tr>
+	  		<td> 
+	  			<%= dc.producto %>
+	  		</td>
+	  		<td>
+	  			<%= dc.cantidad %>
+	  		</td>
+	  		<td>
+	  			$ <%= dc.precio_unitario %>
+			</td>
+			<td>
+				$ <%= (dc.precio_unitario * dc.cantidad) %>
+			</td>
+	  	</tr>
+	    <% @compra.importe = @compra.importe + (dc.precio_unitario * dc.cantidad) %>
+	  <% end %>
+	  <% @compra.update_attributes(params[@compra]) %>
+  </table>
+  <p><b>Total Venta: $ <%= @compra.importe %></b></p>
+
+
+<%= link_to 'Editar', edit_compra_path(@compra) %> |
+<%= link_to 'Volver', compras_path %>

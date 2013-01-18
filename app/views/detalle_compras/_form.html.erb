@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :producto_id %><br />
-    <%= f.number_field :producto_id %>
-  </div>
-  <div class="field">
     <%= f.label :cantidad %><br />
     <%= f.number_field :cantidad %>
   </div>
   <div class="field">
     <%= f.label :precio_unitario %><br />
     <%= f.text_field :precio_unitario %>
+  </div>
+  <div class="field">
+    <%= f.label :producto_id %><br />
+    <%= f.number_field :producto_id %>
+  </div>
+  <div class="field">
+    <%= f.label :compra_id %><br />
+    <%= f.number_field :compra_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

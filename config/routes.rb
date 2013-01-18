@@ -1,12 +1,12 @@
 Camisetas::Application.routes.draw do
   
-  resources :detalle_ventas
-
-  resources :ventas
+  resources :detalle_compras
 
   resources :compras
 
-  resources :detalle_compras
+  resources :detalle_ventas
+
+  resources :ventas
 
   resources :role_permissions
 

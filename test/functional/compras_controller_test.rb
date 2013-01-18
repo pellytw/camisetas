@@ -18,7 +18,7 @@ class ComprasControllerTest < ActionController::TestCase
 
   test "should create compra" do
     assert_difference('Compra.count') do
-      post :create, compra: { detalle_compra_id: @compra.detalle_compra_id, proveedor_id: @compra.proveedor_id }
+      post :create, compra: { fecha: @compra.fecha, importe: @compra.importe, proveedor_id: @compra.proveedor_id }
     end
 
     assert_redirected_to compra_path(assigns(:compra))
@@ -35,7 +35,7 @@ class ComprasControllerTest < ActionController::TestCase
   end
 
   test "should update compra" do
-    put :update, id: @compra, compra: { detalle_compra_id: @compra.detalle_compra_id, proveedor_id: @compra.proveedor_id }
+    put :update, id: @compra, compra: { fecha: @compra.fecha, importe: @compra.importe, proveedor_id: @compra.proveedor_id }
     assert_redirected_to compra_path(assigns(:compra))
   end
 

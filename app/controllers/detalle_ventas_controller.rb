@@ -41,7 +41,7 @@ class DetalleVentasController < ApplicationController
   # POST /detalle_ventas.json
   def create
     @detalle_venta = DetalleVenta.new(params[:detalle_venta])
-
+  
     respond_to do |format|
       if @detalle_venta.save
         format.html { redirect_to @detalle_venta, notice: 'Detalle venta was successfully created.' }
@@ -57,7 +57,6 @@ class DetalleVentasController < ApplicationController
   # PUT /detalle_ventas/1.json
   def update
     @detalle_venta = DetalleVenta.find(params[:id])
-
     respond_to do |format|
       if @detalle_venta.update_attributes(params[:detalle_venta])
         format.html { redirect_to @detalle_venta, notice: 'Detalle venta was successfully updated.' }

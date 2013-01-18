@@ -2,8 +2,10 @@
 
 one:
   proveedor_id: 1
-  detalle_compra_id: 1
+  fecha: 2013-01-18
+  importe: 1.5
 
 two:
   proveedor_id: 1
-  detalle_compra_id: 1
+  fecha: 2013-01-18
+  importe: 1.5

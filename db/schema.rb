@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110150822) do
+ActiveRecord::Schema.define(:version => 20130118124104) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nombre"
@@ -30,23 +30,17 @@ ActiveRecord::Schema.define(:version => 20130110150822) do
 
   create_table "compras", :force => true do |t|
     t.integer  "proveedor_id"
-    t.integer  "detalle_compra_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.date     "fecha"
+    t.float    "importe"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "detalle_compras", :force => true do |t|
-    t.integer  "producto_id"
     t.integer  "cantidad"
     t.float    "precio_unitario"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  create_table "detalle_venta", :force => true do |t|
     t.integer  "producto_id"
-    t.integer  "cantidad"
-    t.float    "precio_unitario"
+    t.integer  "compra_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -155,13 +149,6 @@ ActiveRecord::Schema.define(:version => 20130110150822) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "venta", :force => true do |t|
-    t.integer  "cliente_id"
-    t.integer  "detalle_venta_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
 
   create_table "ventas", :force => true do |t|
     t.integer  "cliente_id"

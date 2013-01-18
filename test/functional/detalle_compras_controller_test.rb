@@ -18,7 +18,7 @@ class DetalleComprasControllerTest < ActionController::TestCase
 
   test "should create detalle_compra" do
     assert_difference('DetalleCompra.count') do
-      post :create, detalle_compra: { cantidad: @detalle_compra.cantidad, precio_unitario: @detalle_compra.precio_unitario, producto_id: @detalle_compra.producto_id }
+      post :create, detalle_compra: { cantidad: @detalle_compra.cantidad, compra_id: @detalle_compra.compra_id, precio_unitario: @detalle_compra.precio_unitario, producto_id: @detalle_compra.producto_id }
     end
 
     assert_redirected_to detalle_compra_path(assigns(:detalle_compra))
@@ -35,7 +35,7 @@ class DetalleComprasControllerTest < ActionController::TestCase
   end
 
   test "should update detalle_compra" do
-    put :update, id: @detalle_compra, detalle_compra: { cantidad: @detalle_compra.cantidad, precio_unitario: @detalle_compra.precio_unitario, producto_id: @detalle_compra.producto_id }
+    put :update, id: @detalle_compra, detalle_compra: { cantidad: @detalle_compra.cantidad, compra_id: @detalle_compra.compra_id, precio_unitario: @detalle_compra.precio_unitario, producto_id: @detalle_compra.producto_id }
     assert_redirected_to detalle_compra_path(assigns(:detalle_compra))
   end
 

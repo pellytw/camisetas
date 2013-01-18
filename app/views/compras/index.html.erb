@@ -1,25 +1,32 @@
-<h1>Listing compras</h1>
+<h1>Listado de Compras</h1>
 
-<table>
+<table class=" table table-striped" >
   <tr>
     <th>Proveedor</th>
-    <th>Detalle compra</th>
+    <th>Fecha</th>
+    <th>Importe</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
+
+<% @total_compras = 0.0 %>
 
 <% @compras.each do |compra| %>
   <tr>
     <td><%= compra.proveedor_id %></td>
-    <td><%= compra.detalle_compra_id %></td>
-    <td><%= link_to 'Show', compra %></td>
-    <td><%= link_to 'Edit', edit_compra_path(compra) %></td>
-    <td><%= link_to 'Destroy', compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= compra.fecha %></td>
+    <td><%= compra.importe %></td>
+    <td><%= link_to 'Ver', compra %></td>
+    <td><%= link_to 'Editar', edit_compra_path(compra) %></td>
+    <td><%= link_to 'Eliminar', compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <% @total_compras = @total_compras + compra.importe %>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Compra', new_compra_path %>
+<h5>Total Compras: <%= @total_compras %></h5> 
+
+<%= link_to 'Nueva Compra', new_compra_path, :class => "btn btn-success" %>
