@@ -23,9 +23,9 @@
     <td><%= producto.stock %></td>
     <td><%= producto.precio_lista %></td>
     <td><%= producto.precio_publico %></td>
-    <td><%= link_to 'Ver', producto %></td>
-    <td><%= link_to 'Editar', edit_producto_path(producto) %></td>
-    <td><%= link_to 'Eliminar', producto, method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></td>
+    <td><%= link_to 'Ver', producto, :class => "btn" %></td>
+    <td><%= link_to 'Editar', edit_producto_path(producto), :class => "btn" %></td>
+    <td><%= link_to 'Eliminar', producto, :class => "btn", method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></td>
   </tr>
 <% end %>
 </table>

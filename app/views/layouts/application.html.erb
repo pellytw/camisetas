@@ -35,7 +35,6 @@
 	            <li><%=link_to "Nueva Venta", new_venta_path, :tabindex => "-1"%></li>
 	            <li><%=link_to "Listado de Compras", compras_path, :tabindex => "-1"%></li>
 	            <li><%=link_to "Nueva Compra", new_compra_path, :tabindex => "-1"%></li>
-	            <li><%=link_to "Nuevo Producto", new_producto_path, :tabindex => "-1"%></li>
 	          </ul>
 	        </li>
 	        
@@ -59,6 +58,8 @@
 	        <% end %>
         <% end %>
       </ul>
+
+      
       <!-- INFORMACION DE LOGGING -->
       <ul class="nav pull-right">
         <li id="fat-menu" class="dropdown">
@@ -82,10 +83,35 @@
 	  <ul class="nav pull-right">
         <li id="fat-menu">
           <% if user_signed_in? -%>
-          	
+          	 <div class="navbar-text"> 
+          	 	
+          	 	<%@compras = Compra.all%>
+          	 	
+          	 	<% @total_compras = 0.0 %>
+
+				<% @compras.each do |compra| %>
+				  <% @total_compras = @total_compras + compra.importe %>
+				<% end %>
+				
+				<%@ventas = Venta.all%>
+          	 	
+          	 	<% @total_ventas = 0.0 %>
+
+				<% @ventas.each do |venta| %>
+				  <% @total_ventas = @total_ventas + venta.importe %>
+				<% end %>
+				
+				<% if (@total_ventas - @total_compras) < 0%>
+     				<span class="label label-important">Balance: $ <%=@total_ventas - @total_compras%> </span>
+     			<% else %>
+     				<span class="label label-success">Balance: $ <%=@total_ventas - @total_compras%> </span>
+     			<% end %>
+     		 </div>
 		  <% end %>
         </li>
-      </ul>      
+      </ul>  
+      
+          
     </div>
   </div>
 </div> 									
