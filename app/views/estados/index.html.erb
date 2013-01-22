@@ -1,6 +1,6 @@
-<h1>Listing estados</h1>
+<h1>Listado de Estados</h1>
 
-<table>
+<table class=" table table-striped">
   <tr>
     <th>Nombre</th>
     <th></th>
@@ -11,13 +11,13 @@
 <% @estados.each do |estado| %>
   <tr>
     <td><%= estado.nombre %></td>
-    <td><%= link_to 'Show', estado %></td>
-    <td><%= link_to 'Edit', edit_estado_path(estado) %></td>
-    <td><%= link_to 'Destroy', estado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Ver', estado, :class => "btn" %></td>
+    <td><%= link_to 'Editar', edit_estado_path(estado), :class => "btn" %></td>
+    <td><%= link_to 'Eliminar', estado, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Estado', new_estado_path %>
+<%= link_to 'Nuevo Estado', new_estado_path, :class => "btn btn-success" %>

@@ -1,6 +1,6 @@
-<h1>Listing talles</h1>
+<h1>Listado de Talles</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Nombre</th>
     <th></th>
@@ -11,13 +11,13 @@
 <% @talles.each do |talle| %>
   <tr>
     <td><%= talle.nombre %></td>
-    <td><%= link_to 'Show', talle %></td>
-    <td><%= link_to 'Edit', edit_talle_path(talle) %></td>
-    <td><%= link_to 'Destroy', talle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Ver', talle, :class => "btn" %></td>
+    <td><%= link_to 'Editar', edit_talle_path(talle), :class => "btn" %></td>
+    <td><%= link_to 'Eliminar', talle, method: :delete, data: { confirm: 'Seguro desea eliminar?' }, :class => "btn" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Talle', new_talle_path %>
+<%= link_to 'Nuevo Talle', new_talle_path, :class => "btn btn-success" %>
