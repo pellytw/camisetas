@@ -26,16 +26,29 @@
   </div> -->
   
    <div class="field">
-  	<label>Detalle Compra:</label><br />
-  	<%= f.fields_for :detalle_compras do |dv|%>
-  			<p>
-  				<%= dv.collection_select(:producto_id, Producto.all, :id, :to_s, :prompt => true)%>
-  				&nbsp;Cantidad&nbsp;  				
-  				<%= dv.number_field(:cantidad, :value => 1.to_i)%><br />
-  				&nbsp;PU&nbsp;
-  				<%= dv.text_field(:precio_unitario, :value => 350.to_i)%><br />
-  				<%= dv.link_to_remove "eliminar", :class => "btn btn-danger btn-mini" %>
-  			</p>
+   <label>Detalle Compra:</label><br />
+<% if @venta.id == nil  %>
+	  	<%= f.fields_for :detalle_ventas do |dv|%>
+		  			<p>
+		  				<%= dv.collection_select(:producto_id, Producto.all, :id, :to_s, :prompt => true)%>
+		  				&nbsp;Cantidad&nbsp;  				
+		  				<%= dv.number_field(:cantidad, :value => 1)%><br />
+		  				&nbsp;PU&nbsp;
+		  				<%= dv.text_field(:precio_unitario, :value => 350)%><br />
+		  				<%= dv.link_to_remove "eliminar", :class => "btn btn-danger btn-mini" %>
+		  			</p>
+		  	<% end %>
+  	<% else %>
+	  	<%= f.fields_for :detalle_ventas do |dv|%>
+	  			<p>
+	  				<%= dv.collection_select(:producto_id, Producto.all, :id, :to_s, :prompt => true)%>
+	  				&nbsp;Cantidad&nbsp;  				
+	  				<%= dv.number_field(:cantidad)%><br />
+	  				&nbsp;PU&nbsp;
+	  				<%= dv.text_field(:precio_unitario)%><br />
+	  				<%= dv.link_to_remove "eliminar", :class => "btn btn-danger btn-mini" %>
+	  			</p>
+	  	<% end %>
   	<% end %>
     <p><%= f.link_to_add "agregar producto", :detalle_compras, :class => "btn btn-success" %></p>
   </div>
