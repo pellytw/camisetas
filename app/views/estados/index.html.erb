@@ -11,9 +11,9 @@
 <% @estados.each do |estado| %>
   <tr>
     <td><%= estado.nombre %></td>
-    <td><%= link_to 'Ver', estado, :class => "btn" %></td>
-    <td><%= link_to 'Editar', edit_estado_path(estado), :class => "btn" %></td>
-    <td><%= link_to 'Eliminar', estado, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %></td>
+    <td><%= link_to 'Ver', estado, :class => "btn btn-small" %></td>
+    <td><%= link_to 'Editar', edit_estado_path(estado), :class => "btn btn-small" %></td>
+    <td><%= link_to 'Eliminar', estado, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-small" %></td>
   </tr>
 <% end %>
 </table>

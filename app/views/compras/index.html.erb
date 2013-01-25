@@ -17,9 +17,9 @@
     <td><%= compra.proveedor_id %></td>
     <td><%= compra.fecha %></td>
     <td><%= compra.importe %></td>
-    <td><%= link_to 'Ver', compra, :class => "btn" %></td>
-    <td><%= link_to 'Editar', edit_compra_path(compra), :class => "btn" %></td>
-    <td><%= link_to 'Eliminar', compra, :class => "btn", method: :delete, data: { confirm: 'Seguro desea eliminar?' }, :class => "btn" %></td>
+    <td><%= link_to 'Ver', compra, :class => "btn btn-small" %></td>
+    <td><%= link_to 'Editar', edit_compra_path(compra), :class => "btn btn-small" %></td>
+    <td><%= link_to 'Eliminar', compra, method: :delete, data: { confirm: 'Seguro desea eliminar?' }, :class => "btn btn-small" %></td>
   </tr>
   <% @total_compras = @total_compras + compra.importe %>
 <% end %>

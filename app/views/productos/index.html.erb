@@ -2,6 +2,7 @@
 
 <table class="table table-striped">
   <tr>
+  	<th>Imagen</th>
     <th>Tipo producto</th>
     <th>Club</th>
     <th>Titularidad</th>
@@ -16,6 +17,7 @@
 
 <% @productos.each do |producto| %>
   <tr>
+  	<td><%= image_tag producto.foto.url(:thumb) %></td>
     <td><%= producto.tipo_producto %></td>
     <td><%= producto.club %></td>
     <td><%= producto.titularidad %></td>
@@ -23,9 +25,9 @@
     <td><%= producto.stock %></td>
     <td><%= producto.precio_lista %></td>
     <td><%= producto.precio_publico %></td>
-    <td><%= link_to 'Ver', producto, :class => "btn" %></td>
-    <td><%= link_to 'Editar', edit_producto_path(producto), :class => "btn" %></td>
-    <td><%= link_to 'Eliminar', producto, :class => "btn", method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></td>
+    <td><%= link_to 'Ver', producto, :class => "btn btn-small btn-info" %></td>
+    <td><%= link_to 'Editar', edit_producto_path(producto), :class => "btn btn-small btn-warning" %></td>
+    <td><%= link_to 'Eliminar', producto, :class => "btn btn-small btn-danger", method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></td>
   </tr>
 <% end %>
 </table>

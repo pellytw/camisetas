@@ -11,9 +11,9 @@
 <% @titularidads.each do |titularidad| %>
   <tr>
     <td><%= titularidad.nombre %></td>
-    <td><%= link_to 'Ver', titularidad, :class => "btn" %></td>
-    <td><%= link_to 'Editar', edit_titularidad_path(titularidad), :class => "btn" %></td>
-    <td><%= link_to 'Eliminar', titularidad, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %></td>
+    <td><%= link_to 'Ver', titularidad, :class => "btn btn-small" %></td>
+    <td><%= link_to 'Editar', edit_titularidad_path(titularidad), :class => "btn btn-small" %></td>
+    <td><%= link_to 'Eliminar', titularidad, method: :delete, data: { confirm: 'Seguro desea eliminar?' }, :class => "btn btn-small" %></td>
   </tr>
 <% end %>
 </table>

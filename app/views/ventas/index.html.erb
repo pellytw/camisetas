@@ -17,9 +17,9 @@
     <td><%= venta.cliente %></td>
     <td><%= venta.fecha %></td>
     <td><%= venta.importe %></td>
-    <td><%= link_to 'Ver', venta, :class => "btn" %></td>
-    <td><%= link_to 'Editar', edit_venta_path(venta), :class => "btn" %></td>
-    <td><%= link_to 'Eliminar', venta, :class => "btn", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Ver', venta, :class => "btn btn-small" %></td>
+    <td><%= link_to 'Editar', edit_venta_path(venta), :class => "btn btn-small" %></td>
+    <td><%= link_to 'Eliminar', venta, :class => "btn btn-small", method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></td>
   </tr>
   <% @total_ventas = @total_ventas + venta.importe %>
 <% end %>

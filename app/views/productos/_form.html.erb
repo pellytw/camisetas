@@ -1,4 +1,7 @@
-<%= form_for(@producto) do |f| %>
+<%= form_for @producto, :url => productos_path, :html => { :multipart => true } do |f| %>
+
+ <%= f.file_field :foto %>
+
   <% if @producto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
@@ -10,6 +13,8 @@
       </ul>
     </div>
   <% end %>
+
+
 
   <div class="field">
     <%= f.label :tipo_producto_id %><br />

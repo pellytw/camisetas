@@ -11,9 +11,9 @@
 <% @clubs.each do |club| %>
   <tr>
     <td><%= club.nombre %></td>
-    <td><%= link_to 'Ver', club, :class => "btn" %></td>
-    <td><%= link_to 'Editar', edit_club_path(club), :class => "btn" %></td>
-    <td><%= link_to 'Eliminar', club, method: :delete, data: { confirm: 'Seguro desea eliminar?' }, :class => "btn" %></td>
+    <td><%= link_to 'Ver', club, :class => "btn btn-small" %></td>
+    <td><%= link_to 'Editar', edit_club_path(club), :class => "btn btn-small" %></td>
+    <td><%= link_to 'Eliminar', club, method: :delete, data: { confirm: 'Seguro desea eliminar?' }, :class => "btn btn-small" %></td>
   </tr>
 <% end %>
 </table>

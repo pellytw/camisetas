@@ -36,5 +36,13 @@
 </p>
 
 
+
+<p>
+ <!-- <%= image_tag @producto.foto.url %>
+<%= image_tag @producto.foto.url(:medium) %> -->
+<%= image_tag @producto.foto.url(:thumb) %>
+</p>
+
+
 <%= link_to 'Editar', edit_producto_path(@producto) %> |
 <%= link_to 'Volver', productos_path %>
