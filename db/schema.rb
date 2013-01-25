@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118124104) do
+ActiveRecord::Schema.define(:version => 20130124124000) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nombre"
@@ -75,8 +75,12 @@ ActiveRecord::Schema.define(:version => 20130118124104) do
     t.integer  "stock"
     t.float    "precio_lista"
     t.float    "precio_publico"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
   end
 
   create_table "proveedors", :force => true do |t|
