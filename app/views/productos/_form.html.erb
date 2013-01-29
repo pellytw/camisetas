@@ -1,6 +1,8 @@
-<%= form_for @producto, :url => productos_path, :html => { :multipart => true } do |f| %>
+<%= form_for @producto, :html => { :multipart => true } do |f| %>
 
  <%= f.file_field :foto %>
+ <%= f.file_field :foto2 %>
+ <!-- <%= f.file_field :foto3 %> -->
 
   <% if @producto.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +15,6 @@
       </ul>
     </div>
   <% end %>
-
 
 
   <div class="field">

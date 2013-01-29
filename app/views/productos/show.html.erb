@@ -1,47 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Tipo producto:</b>
-  <%= @producto.tipo_producto %>
-</p>
+<div class="row">
+  <div class="span6">
+  	
+  	<table class="table table-striped">	  
+	  	<tr><td><h4>Tipo de Producto</h4></td><td><h4><%= @producto.tipo_producto %></h4></td></tr>
+	  	<tr><td><h4>Club</h4></td><td><h4><%= @producto.club %></h4></td></tr>
+	  	<tr><td><h4>Titularidad</h4></td><td><h4><%= @producto.titularidad %></h4></td></tr>
+		<tr><td><h4>Talle</h4></td><td><h4><%= @producto.talle %></h4></td></tr>
+		<tr><td><h4>Stock</h4></td><td><h4><%= @producto.stock %></h4></td></tr>
+		<tr><td><h4>Precio lista</h4></td><td><h4><%= @producto.precio_lista %></h4></td></tr>
+		<tr><td><h4>Precio público</h4></td><td><h4><%= @producto.precio_publico %></h4></td></tr>
+	</table>
+  	
+  </div>
 
-<p>
-  <b>Club:</b>
-  <%= @producto.club %>
-</p>
+  <div class="span6">
+  	<div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="item active">
+      	<%= image_tag @producto.foto.url(:medium) %>
+        <div class="carousel-caption">
+          <h4>Foto frente</h4>
+          <p></p>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag @producto.foto2.url(:medium) %>
+        <div class="carousel-caption">
+          <h4>Foto espalda</h4>
+          <p></p>
+        </div>
+      </div>      
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+   </div>
+  </div>
 
-<p>
-  <b>Titularidad:</b>
-  <%= @producto.titularidad %>
-</p>
-
-<p>
-  <b>Talle:</b>
-  <%= @producto.talle %>
-</p>
-
-<p>
-  <b>Stock:</b>
-  <%= @producto.stock %>
-</p>
-
-<p>
-  <b>Precio lista:</b>
-  <%= @producto.precio_lista %>
-</p>
-
-<p>
-  <b>Precio publico:</b>
-  <%= @producto.precio_publico %>
-</p>
+</div>
 
 
 
-<p>
- <!-- <%= image_tag @producto.foto.url %>
-<%= image_tag @producto.foto.url(:medium) %> -->
-<%= image_tag @producto.foto.url(:thumb) %>
-</p>
+ <!--  <%= image_tag @producto.foto.url %> -->
+<!--<%= image_tag @producto.foto.url(:medium) %> -->
+<!-- <%= image_tag @producto.foto.url(:thumb) %> -->
+
 
 
 <%= link_to 'Editar', edit_producto_path(@producto) %> |
