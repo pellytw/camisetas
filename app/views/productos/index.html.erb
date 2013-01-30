@@ -17,7 +17,10 @@
 
 <% @productos.each do |producto| %>
   <tr>
-  	<td><%= image_tag producto.foto.url(:thumb) %></td>
+  	<td><% if (producto.foto_file_name != nil) then %> 
+  		<%=image_tag producto.foto.url(:thumb)%>
+  		<% else %> <img src="/assets/no disponible.jpg" width="30%" /> 
+  		<% end %></td>
     <td><%= producto.tipo_producto %></td>
     <td><%= producto.club %></td>
     <td><%= producto.titularidad %></td>

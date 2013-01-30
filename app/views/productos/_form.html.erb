@@ -35,7 +35,7 @@
   </div>
   <div class="field">
     <%= f.label :stock %><br />
-    <%= f.number_field :stock %>
+    <%= select(:producto, :stock, (0..99).to_a) %>
   </div>
   <div class="field">
     <%= f.label :precio_lista %><br />
