@@ -28,11 +28,19 @@
 		        </div>
 		      </div>
 		      <div class="item">
-		        <%= image_tag @producto.foto2.url(:medium) %>
-		        <div class="carousel-caption">
-		          <h4></h4>
-		          <p>Foto espalda</p>
-		        </div>
+		      	<% if (@producto.foto2_file_name != nil) then %>		      	
+			        <%= image_tag @producto.foto2.url(:medium) %>
+			        <div class="carousel-caption">
+			          <h4></h4>
+			          <p>Foto espalda</p>
+			        </div>
+		        <% else %>
+		        	<%= image_tag src="/assets/no disponible.jpg" %>
+			        <div class="carousel-caption">
+			          <h4></h4>
+			          <p>Foto espalda</p>
+			        </div>
+		        <% end %>
 		     </div>   
 	     </div>
 	     <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
