@@ -27,21 +27,17 @@
 		          <p>Foto frente</p>
 		        </div>
 		      </div>
-		      <div class="item">
-		      	<% if (@producto.foto2_file_name != nil) then %>		      	
+		      
+		      <% if (@producto.foto2_file_name != nil) then %>
+		      	<div class="item">		      	
 			        <%= image_tag @producto.foto2.url(:medium) %>
 			        <div class="carousel-caption">
 			          <h4></h4>
 			          <p>Foto espalda</p>
 			        </div>
-		        <% else %>
-		        	<%= image_tag src="/assets/no disponible.jpg" %>
-			        <div class="carousel-caption">
-			          <h4></h4>
-			          <p>Foto espalda</p>
-			        </div>
-		        <% end %>
-		     </div>   
+			    </div>
+		      <% end %>
+		        
 	     </div>
 	     <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 	     <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
